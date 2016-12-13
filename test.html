@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rooms</title>
+        <!-- Latest compiled and minified CSS -->
+          </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+         
+                        <div class="tools"></div>
+                        <canvas id="colors_sketch" width="300" height="300"></canvas>
+            
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://intridea.github.io/sketch.js/lib/sketch.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+    $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
+      $('.tools').append("<a href='#colors_sketch' data-color='" + this + "' style='border: 1px solid black; padding: 10px 20px; margin-right: 5px; background: " + this + ";'></a> ");
+    });
+    $.each([3, 5, 10, 15], function() {
+      $('.tools').append("<a href='#colors_sketch' data-size='" + this + "' style='border: 1px solid black; padding: 10px 15px; margin-right: 5px; text-decoration: none; background: #ccc'>" + this + "</a> ");
+    });
+    $('#colors_sketch').sketch();
+  });
+                    
+        </script>
+    </body>
+</html>

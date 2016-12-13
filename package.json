@@ -1,0 +1,25 @@
+{
+  "name": "module-2-group-project-webbuster",
+  "version": "1.0.0",
+  "description": "module 2 group project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umn-5117-f16/module-2-group-project-webbuster.git"
+  },
+  "author": "Rain Zhang (zhan2223), ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umn-5117-f16/module-2-group-project-webbuster/issues"
+  },
+  "homepage": "https://github.com/umn-5117-f16/module-2-group-project-webbuster#readme",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "socket.io": "^1.5.0"
+  }
+}

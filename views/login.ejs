@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Create Role</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            .vertical-a {
+                margin-top: 25vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container vertical-a">
+            <div class="jumbotron">
+                <h1>Draw Something</h1>
+                <ol>
+                    <li>Create an unique user name.</li>
+                    <li>Create a new game or join an existing game.</li>
+                    <li>Draw or Guess!</li>
+                </ol>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-1 col-xs-12">
+                    <% if (msg != null) { %>
+                        <p id="messageBox" class="bg-danger"><%= msg %></p>
+                    <% } %>
+                    <form method="post" action="create-player" class="form-inline">
+                        <div class="form-group">
+                            <label for="login_name">Name</label>
+                            <input type="text" class="form-control" id="login_name" name="login_name" placeholder="Please enter your name" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="script-login.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>

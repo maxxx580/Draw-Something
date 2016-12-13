@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rooms</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css-room.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" id="username">Hello, <%= user %></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Rooms</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <h1 id="roomname">RoomName: <%= data.RoomName %></h1>
+                    <!-- <p>Room Type: <%= data.RoomType %></p> -->
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <% if (viewmode === 0) { %>
+                        <button type="button" onclick="fetchword()">Start</button>
+                        <h1>Current Word: </h1>
+                        <h1 id="word"></h1>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                        <div class="tools"></div>
+                        <canvas id="colors_sketch" height="500px" width="500px"></canvas>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div id="chatEntries">
+                        <% data.Chats.forEach(function(msg){ %>
+                            <div class="message"><p> <%= msg.Player %>  :  <%= msg.Body %> </p></div>
+                        <% }) %>
+                    </div>
+
+                    <% if (viewmode === 1) { %>
+                        <div id="chatControl">
+                            <input type="text" id="guess_input"></input>
+                            <button id="btn_send">Send</button>
+                        </div>
+                    <% } %>
+                </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="sketch.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <% if (viewmode === 0) { %>
+            <% console.log("painter"); %>
+            <script src="/script-room-painter.js"></script>
+        <% } %>
+
+        <% if (viewmode === 1) { %>
+            <% console.log("guesser"); %>
+            <script src="/script-room-guesser.js"></script>
+        <% } %>
+
+        <% if (viewmode === 2) { %>
+            <% console.log("viewer"); %>   
+            <script src="/script-room-viewer.js"></script>
+        <% } %>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>
